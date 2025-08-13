@@ -1,6 +1,6 @@
 import { Map, MapMouseEvent } from "maplibre-gl";
 
-const ALLOW_LAYERS = ["earthquake", "volcano"];
+const ALLOW_LAYERS = ["earthquake"];
 
 export const setupPointerHandler = (map: Map) => {
   map.on("mousemove", (e: MapMouseEvent) => {

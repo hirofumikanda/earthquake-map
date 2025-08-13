@@ -1,7 +1,7 @@
 import maplibregl, { Map, MapMouseEvent } from "maplibre-gl";
 import type { MapGeoJSONFeature } from "maplibre-gl";
 
-const ALLOW_LAYERS = ["earthquake", "volcano", "bathymetry"];
+const ALLOW_LAYERS = ["earthquake", "bathymetry"];
 
 export const setupPopupHandler = (map: Map) => {
   map.on("click", (e: MapMouseEvent) => {

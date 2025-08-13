@@ -1,8 +1,6 @@
 import maplibregl from "maplibre-gl";
 
 export async function onMapLoad(map: maplibregl.Map) {
-  const volcano = await map.loadImage("img/volcano.png");
-  map.addImage("volcano", volcano.data);
   const red = await map.loadImage("img/red.png");
   map.addImage("red", red.data);
   const orange = await map.loadImage("img/orange.png");
