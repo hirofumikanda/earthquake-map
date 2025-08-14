@@ -95,7 +95,7 @@
       "type": "raster",
       "source": "plate",
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       }
     },
     {
@@ -108,13 +108,19 @@
           "step",
           [
             "get",
-            "mag"
+            "depth"
           ],
-          "yellow",
-          7,
           "red",
-          8,
-          "dark_red"
+          25,
+          "orange",
+          50,
+          "yellow",
+          75,
+          "lime_green",
+          100,
+          "green",
+          200,
+          "blue"
         ],
         "icon-size": [
           "interpolate",
