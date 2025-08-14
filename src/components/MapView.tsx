@@ -11,7 +11,7 @@ const PLATE_LAYER_ID = "plate"; // plateレイヤのID（style.jsonで定義さ�
 const MapView = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const [plateVisible, setPlateVisible] = useState(true);
+  const [plateVisible, setPlateVisible] = useState(false);
 
   useEffect(() => {
     const protocol = new Protocol();
