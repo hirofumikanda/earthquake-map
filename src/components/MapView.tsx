@@ -88,7 +88,7 @@ const MapView = () => {
           boxShadow: "0 1px 4px rgba(0,0,0,0.1)",
         }}
       >
-        <div style={{ fontWeight: "bold", marginBottom: 4 }}>地震深さ凡例</div>
+        <div style={{ fontWeight: "bold", marginBottom: 4 }}>震源の深さ凡例</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <LegendItem color="red" label="0–24 km" />
           <LegendItem color="orange" label="25–49 km" />
