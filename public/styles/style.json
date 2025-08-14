@@ -5,25 +5,29 @@
       "type": "vector",
       "url": "pmtiles:///earthquake-map/data/bathymetry.pmtiles",
       "minzoom": 0,
-      "maxzoom": 8
+      "maxzoom": 8,
+      "attribution": "<a href='https://www.naturalearthdata.com' target='_blank'>Made with Natural Earth</a>"
     },
     "earthquake": {
       "type": "vector",
       "url": "pmtiles:///earthquake-map/data/earthquake.pmtiles",
       "minzoom": 1,
-      "maxzoom": 8
+      "maxzoom": 8,
+      "attribution":"<a href='https://earthquake.usgs.gov/earthquakes/search/' target='_blank'>USGS Search Earthquake Catalog</a>"
     },
     "land_cover": {
       "type": "raster",
       "url": "pmtiles:///earthquake-map/data/land_cover.pmtiles",
       "minzoom": 0,
-      "maxzoom": 4
+      "maxzoom": 4,
+      "attribution": "<a href='https://www.naturalearthdata.com' target='_blank'>Made with Natural Earth</a>"
     },
     "plate": {
       "type": "raster",
       "url": "pmtiles:///earthquake-map/data/plate.pmtiles",
       "minzoom": 0,
-      "maxzoom": 4
+      "maxzoom": 4,
+      "attribution": "<a href='https://www.livescience.com/planet-earth/geology/how-many-tectonic-plates-does-earth-have' target='_blank'>LIVE SCIENCE</a>"
     }
   },
   "glyphs": "font/{fontstack}/{range}.pbf",
