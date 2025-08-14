@@ -5,8 +5,9 @@ import { Protocol } from "pmtiles";
 import { setupPopupHandler } from "../utils/popup";
 import { setupPointerHandler } from "../utils/pointer";
 import { onMapLoad } from "../utils/onMapLoad";
+import { LegendItem } from "../utils/LegendItem";
 
-const PLATE_LAYER_ID = "plate"; // plateレイヤのID（style.jsonで定義されているIDに合わせてください）
+const PLATE_LAYER_ID = "plate";
 
 const MapView = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -40,11 +41,9 @@ const MapView = () => {
     };
   }, []);
 
-  // plateVisibleが変わったときにplateレイヤの表示/非表示を切り替える
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    // plateレイヤが存在する場合のみ
     if (map.getLayer(PLATE_LAYER_ID)) {
       map.setLayoutProperty(
         PLATE_LAYER_ID,
@@ -56,7 +55,6 @@ const MapView = () => {
 
   return (
     <>
-      {/* チェックボックスUI */}
       <div
         style={{
           position: "absolute",
@@ -76,6 +74,29 @@ const MapView = () => {
           />
           plateレイヤ表示
         </label>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          left: 10,
+          bottom: 10,
+          zIndex: 1,
+          background: "rgba(255,255,255,0.85)",
+          padding: "8px 14px",
+          borderRadius: "4px",
+          fontSize: "14px",
+          boxShadow: "0 1px 4px rgba(0,0,0,0.1)",
+        }}
+      >
+        <div style={{ fontWeight: "bold", marginBottom: 4 }}>地震深さ凡例</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <LegendItem color="red" label="0–24 km" />
+          <LegendItem color="orange" label="25–49 km" />
+          <LegendItem color="yellow" label="50–74 km" />
+          <LegendItem color="limegreen" label="75–99 km" />
+          <LegendItem color="green" label="100–199 km" />
+          <LegendItem color="blue" label="200+ km" />
+        </div>
       </div>
       <div ref={mapContainerRef} style={{ width: "100%", height: "100vh" }} />
     </>
