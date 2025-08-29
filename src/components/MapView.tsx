@@ -22,7 +22,7 @@ const MapView = () => {
       container: mapContainerRef.current!,
       style: "styles/style.json",
       center: [139.21, 37.18],
-      zoom: 1,
+      zoom: 2,
       minZoom: 1,
       hash: true,
     });
