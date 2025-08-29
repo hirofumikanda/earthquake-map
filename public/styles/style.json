@@ -13,7 +13,7 @@
       "url": "pmtiles:///earthquake-map/data/earthquake.pmtiles",
       "minzoom": 1,
       "maxzoom": 8,
-      "attribution":"<a href='https://earthquake.usgs.gov/earthquakes/search/' target='_blank'>USGS Search Earthquake Catalog</a>"
+      "attribution": "<a href='https://earthquake.usgs.gov/earthquakes/search/' target='_blank'>USGS Search Earthquake Catalog</a>"
     },
     "land_cover": {
       "type": "raster",
@@ -28,6 +28,14 @@
       "minzoom": 0,
       "maxzoom": 4,
       "attribution": "<a href='https://www.livescience.com/planet-earth/geology/how-many-tectonic-plates-does-earth-have' target='_blank'>LIVE SCIENCE</a>"
+    },
+    "gebco": {
+      "type": "raster-dem",
+      "url": "pmtiles:///earthquake-map/data/gebco.pmtiles",
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 4,
+      "attribution": "<a href='https://www.gebco.net/data-products/gridded-bathymetry-data' target='_blank'>GEBCO_2025 Grid (sub-ice topo/bathy)</a>"
     }
   },
   "glyphs": "font/{fontstack}/{range}.pbf",
@@ -50,22 +58,14 @@
       "source": "bathymetry",
       "source-layer": "bathymetry",
       "layout": {
-        "fill-sort-key": [
-          "get",
-          "depth"
-        ]
+        "fill-sort-key": ["get", "depth"]
       },
       "paint": {
         "fill-opacity": 0.5,
         "fill-color": [
           "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "get",
-            "depth"
-          ],
+          ["linear"],
+          ["get", "depth"],
           0,
           "#aad3df",
           200,
@@ -95,6 +95,15 @@
       "minzoom": 0
     },
     {
+      "id": "hillshade",
+      "type": "hillshade",
+      "source": "gebco",
+      "paint": {
+        "hillshade-exaggeration": 0.2
+      },
+      "minzoom": 0
+    },
+    {
       "id": "plate",
       "type": "raster",
       "source": "plate",
@@ -110,10 +119,7 @@
       "layout": {
         "icon-image": [
           "step",
-          [
-            "get",
-            "depth"
-          ],
+          ["get", "depth"],
           "red",
           25,
           "orange",
@@ -128,12 +134,8 @@
         ],
         "icon-size": [
           "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "zoom"
-          ],
+          ["linear"],
+          ["zoom"],
           1,
           0.2,
           3,
