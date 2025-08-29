@@ -8,6 +8,10 @@
 - 過去20年間（2005/8/1-2025/8/1）のM6以上の地震について、震源の深さに応じて色分けして表示
 - [プレート分布図](https://www.livescience.com/planet-earth/geology/how-many-tectonic-plates-does-earth-have)のOn/Off表示
 
+## デモ
+
+[GitHub Pagesで公開中](https://hirofumikanda.github.io/earthquake-map/)
+
 ## 🔧 セットアップ手順
 
 ### 1. 依存ライブラリのインストール
@@ -21,8 +25,6 @@ npm install
 ```bash
 npm run dev
 ```
-
----
 
 ## 🧪 デモで使用している主なライブラリ
 
