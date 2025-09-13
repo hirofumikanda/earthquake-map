@@ -36,14 +36,6 @@
       "minzoom": 0,
       "maxzoom": 4,
       "attribution": "<a href='https://www.gebco.net/data-products/gridded-bathymetry-data' target='_blank'>GEBCO_2025 Grid (sub-ice topo/bathy)</a>"
-    },
-    "geoid": {
-      "type": "raster",
-      "url": "pmtiles:///earthquake-map/data/geoid.pmtiles",
-      "tileSize": 256,
-      "minzoom": 0,
-      "maxzoom": 8,
-      "attribution": "<a href='https://www.gsi.go.jp/buturisokuchi/grageo_reference.html' target='_blank'>ジオイド2024日本とその周辺</a>"
     }
   },
   "glyphs": "font/{fontstack}/{range}.pbf",
@@ -108,18 +100,6 @@
       "source": "gebco",
       "paint": {
         "hillshade-exaggeration": 0.2
-      },
-      "minzoom": 0
-    },
-    {
-      "id": "geoid",
-      "type": "raster",
-      "source": "geoid",
-      "layout": {
-        "visibility": "none"
-      },
-      "paint": {
-        "raster-opacity": 0.5
       },
       "minzoom": 0
     },
