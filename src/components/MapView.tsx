@@ -8,11 +8,13 @@ import { onMapLoad } from "../utils/onMapLoad";
 import { LegendItem } from "../utils/LegendItem";
 
 const PLATE_LAYER_ID = "plate";
+const GEOID_LAYER_ID = "geoid";
 
 const MapView = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [plateVisible, setPlateVisible] = useState(false);
+  const [geoidVisible, setGeoidVisible] = useState(false);
 
   useEffect(() => {
     const protocol = new Protocol();
@@ -53,6 +55,18 @@ const MapView = () => {
     }
   }, [plateVisible]);
 
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    if (map.getLayer(GEOID_LAYER_ID)) {
+      map.setLayoutProperty(
+        GEOID_LAYER_ID,
+        "visibility",
+        geoidVisible ? "visible" : "none"
+      );
+    }
+  }, [geoidVisible]);
+
   return (
     <>
       <div
@@ -66,14 +80,26 @@ const MapView = () => {
           borderRadius: "4px",
         }}
       >
-        <label>
-          <input
-            type="checkbox"
-            checked={plateVisible}
-            onChange={(e) => setPlateVisible(e.target.checked)}
-          />
-          plateレイヤ表示
-        </label>
+        <div style={{ marginBottom: "4px" }}>
+          <label>
+            <input
+              type="checkbox"
+              checked={plateVisible}
+              onChange={(e) => setPlateVisible(e.target.checked)}
+            />
+            プレート概略図
+          </label>
+        </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={geoidVisible}
+              onChange={(e) => setGeoidVisible(e.target.checked)}
+            />
+            ジオイド2024日本とその周辺
+          </label>
+        </div>
       </div>
       <div
         style={{
